@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nehemiah Marketing | San Antonio Local Business Growth Agency</title>
+<meta name="description" content="Nehemiah Marketing helps San Antonio local businesses grow through strategic marketing, branding, SEO, ads, and automation. Building brands. Breaking barriers. Impacting kingdoms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --panel:#141210;
+    --panel-2:#1c1a16;
+    --gold:#c9a13b;
+    --gold-bright:#e6c565;
+    --gold-dim:#8a6d24;
+    --ivory:#f4efe4;
+    --ivory-dim:#b9b3a4;
+    --stone:#2a2723;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--ivory);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold-dim) 20%,var(--gold) 50%,var(--gold-dim) 80%,transparent);
+    border:none;
+    margin:0;
+  }
+  /* focus visibility */
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+    outline:2px solid var(--gold-bright);
+    outline-offset:3px;
+  }
+
+  /* ===== NAV ===== */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--stone);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .brand-mark{display:flex;align-items:center;gap:12px;}
+  .brand-mark img{height:44px;width:auto;}
+  .brand-mark .name{font-family:'Playfair Display',serif;font-size:18px;letter-spacing:0.06em;color:var(--ivory);}
+  .brand-mark .name b{color:var(--gold);font-weight:700;}
+  .nav-cta{
+    display:flex;align-items:center;gap:18px;
+  }
+  .nav-phone{font-size:14px;color:var(--ivory-dim);display:none;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    border-radius:var(--radius);
+    transition:all .2s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-gold{
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    color:#181410;
+  }
+  .btn-gold:hover{background:linear-gradient(180deg,#f0d47a,var(--gold-bright));transform:translateY(-1px);}
+  .btn-ghost{
+    border-color:var(--gold-dim);
+    color:var(--ivory);
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:96px 0 88px;
+    overflow:hidden;
+    border-bottom:1px solid var(--stone);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 0%, rgba(201,161,59,0.14), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 100%, rgba(201,161,59,0.08), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.08;
+    font-weight:700;
+    color:var(--ivory);
+    margin:18px 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-bright);
+  }
+  .hero p.lead{
+    font-size:17px;
+    color:var(--ivory-dim);
+    max-width:52ch;
+    margin-bottom:34px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* wall/brick visual signature */
+  .wall-visual{
+    position:relative;
+    aspect-ratio:1/1.05;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .wall{
+    width:100%;
+    display:flex;flex-direction:column-reverse;
+    gap:6px;
+  }
+  .course{
+    display:flex;gap:6px;
+    opacity:0;
+    animation:rise .7s ease forwards;
+  }
+  .course:nth-child(1){animation-delay:.05s}
+  .course:nth-child(2){animation-delay:.15s}
+  .course:nth-child(3){animation-delay:.25s}
+  .course:nth-child(4){animation-delay:.35s}
+  .course:nth-child(5){animation-delay:.45s}
+  .course:nth-child(6){animation-delay:.55s}
+  @keyframes rise{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .brick{
+    flex:1;
+    height:34px;
+    background:linear-gradient(160deg,#2b2416,#171208);
+    border:1px solid rgba(201,161,59,0.35);
+    border-radius:1px;
+  }
+  .course:nth-child(odd) .brick:first-child{flex:0 0 20px;}
+  .course:nth-child(even) .brick:last-child{flex:0 0 20px;}
+  .wall-caption{
+    text-align:center;font-size:12px;color:var(--ivory-dim);
+    letter-spacing:0.14em;text-transform:uppercase;margin-top:14px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .course{animation:none;opacity:1;}
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:80px 0;border-bottom:1px solid var(--stone);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px);margin-top:12px;color:var(--ivory);font-weight:600;}
+  .section-head p{color:var(--ivory-dim);margin-top:14px;font-size:15.5px;}
+
+  /* services */
+  .service-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--stone);border:1px solid var(--stone);}
+  .service-group{background:var(--panel);padding:34px;}
+  .service-group h3{font-size:20px;color:var(--gold-bright);margin-bottom:6px;font-weight:600;}
+  .service-group .sub{font-size:13px;color:var(--ivory-dim);margin-bottom:20px;}
+  .service-group ul{list-style:none;}
+  .service-group li{
+    font-size:14.5px;color:var(--ivory);
+    padding:9px 0;
+    border-top:1px solid rgba(255,255,255,0.06);
+    display:flex;gap:10px;
+  }
+  .service-group li:first-of-type{border-top:none;}
+  .service-group li::before{content:"—";color:var(--gold-dim);flex:none;}
+
+  /* process */
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);}
+  .stage{background:var(--panel);padding:30px 26px;position:relative;}
+  .stage .num{font-family:'Playfair Display',serif;font-size:34px;color:var(--gold-dim);}
+  .stage h4{font-size:16px;margin:10px 0 8px;color:var(--ivory);font-weight:600;}
+  .stage p{font-size:13.5px;color:var(--ivory-dim);}
+
+  /* packages */
+  .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .package{
+    border:1px solid var(--stone);
+    background:var(--panel);
+    padding:36px 30px;
+    display:flex;flex-direction:column;
+  }
+  .package.featured{
+    border-color:var(--gold);
+    background:linear-gradient(180deg,#1a1710,var(--panel));
+    position:relative;
+  }
+  .package.featured::before{
+    content:"MOST POPULAR";
+    position:absolute;top:-1px;right:24px;
+    background:var(--gold);color:#181410;
+    font-size:10px;letter-spacing:0.14em;font-weight:700;
+    padding:5px 10px;
+  }
+  .package h3{font-size:20px;color:var(--ivory);font-weight:600;}
+  .package .price{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold-bright);margin:14px 0 4px;}
+  .package .price span{font-size:13px;color:var(--ivory-dim);font-family:'Inter',sans-serif;}
+  .package .desc{font-size:13.5px;color:var(--ivory-dim);margin-bottom:22px;}
+  .package ul{list-style:none;margin-bottom:26px;flex:1;}
+  .package li{font-size:13.5px;padding:7px 0;display:flex;gap:8px;}
+  .package li::before{content:"✓";color:var(--gold);flex:none;}
+
+  /* lead form */
+  .lead-section{background:var(--panel-2);}
+  .lead-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
+  .lead-info h2{font-size:clamp(26px,3.4vw,36px);color:var(--ivory);margin:12px 0 16px;font-weight:600;}
+  .lead-info p{color:var(--ivory-dim);font-size:15px;margin-bottom:22px;}
+  .lead-contact{display:flex;flex-direction:column;gap:10px;font-size:14.5px;}
+  .lead-contact a{color:var(--gold-bright);}
+  form.lead-form{
+    background:var(--panel);
+    border:1px solid var(--stone);
+    padding:34px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ivory-dim);}
+  input,select,textarea{
+    background:#0e0c0a;
+    border:1px solid var(--stone);
+    color:var(--ivory);
+    padding:11px 12px;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    border-radius:1px;
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+  textarea{resize:vertical;min-height:80px;}
+  .lead-form .btn{width:100%;justify-content:center;margin-top:8px;padding:14px;font-size:13px;}
+  #formStatus{margin-top:14px;font-size:13.5px;color:var(--gold-bright);display:none;}
+
+  /* footer */
+  footer{padding:48px 0 32px;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer .tagline{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ivory-dim);}
+  footer .phones{display:flex;gap:22px;font-size:14px;}
+  footer .phones a{color:var(--gold-bright);}
+  .copyright{margin-top:28px;font-size:12px;color:#665f52;}
+
+  /* ===== AI ASSISTANT WIDGET ===== */
+  #aiWidgetToggle{
+    position:fixed;bottom:24px;right:24px;z-index:100;
+    width:60px;height:60px;border-radius:50%;
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 22px rgba(0,0,0,0.5);
+    font-size:26px;color:#181410;
+    transition:transform .2s ease;
+  }
+  #aiWidgetToggle:hover{transform:scale(1.06);}
+  #aiWidgetPanel{
+    position:fixed;bottom:96px;right:24px;z-index:100;
+    width:380px;max-width:calc(100vw - 32px);
+    height:600px;max-height:calc(100vh - 140px);
+    border-radius:18px;overflow:hidden;
+    border:1px solid var(--gold-dim);
+    box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    display:none;
+    background:#0e0c0a;
+  }
+  #aiWidgetPanel.open{display:block;}
+  #aiWidgetPanel iframe{width:100%;height:100%;border:0;}
+  #aiWidgetPanel .widget-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 14px;background:var(--panel);
+    border-bottom:1px solid var(--stone);
+  }
+  #aiWidgetPanel .widget-head span{font-size:13px;color:var(--gold-bright);letter-spacing:0.05em;}
+  #aiWidgetPanel .widget-head button{
+    background:none;border:none;color:var(--ivory-dim);font-size:18px;cursor:pointer;line-height:1;
+  }
+
+  @media (min-width:720px){ .nav-phone{display:inline;} }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .wall-visual{max-width:320px;margin:0 auto;}
+    .service-groups{grid-template-columns:1fr;}
+    .process{grid-template-columns:repeat(2,1fr);}
+    .packages{grid-template-columns:1fr;}
+    .lead-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand-mark">
+      <img src="logo.jpg" alt="Nehemiah Marketing logo">
+      <div class="name">NEHEMIAH <b>MARKETING</b></div>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-phone">(210) 984-5063</span>
+      <a href="#lead" class="btn btn-gold">Get a Growth Plan</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">San Antonio · Local Business Marketing</div>
+      <h1>Every business has walls<br>worth <em>rebuilding.</em></h1>
+      <p class="lead">Nehemiah Marketing helps San Antonio's contractors, salons, restaurants, dentists, and local shops rebuild their brand, their online visibility, and their pipeline of customers — one course at a time, until the whole wall stands.</p>
+      <div class="hero-actions">
+        <a href="#lead" class="btn btn-gold">Get a Free Growth Plan</a>
+        <a href="tel:2109845063" class="btn btn-ghost">Call (210) 984-5063</a>
+      </div>
+    </div>
+    <div class="wall-visual" aria-hidden="true">
+      <div class="wall">
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="course"><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>Everything it takes to grow, under one roof.</h2>
+      <p>No piecing together five vendors. One team handles your brand, your website, your ads, and your reputation.</p>
+    </div>
+    <div class="service-groups">
+      <div class="service-group">
+        <h3>Brand &amp; Web</h3>
+        <div class="sub">Your foundation</div>
+        <ul>
+          <li>Website design &amp; redesign</li>
+          <li>Branding — logos, colors, messaging</li>
+          <li>Copywriting for web, ads &amp; social</li>
+          <li>Local SEO &amp; Google Business Profile</li>
+          <li>Google Maps ranking &amp; local citations</li>
+        </ul>
+      </div>
+      <div class="service-group">
+        <h3>Visibility &amp; Ads</h3>
+        <div class="sub">Getting seen</div>
+        <ul>
+          <li>Google, Facebook &amp; Instagram Ads</li>
+          <li>TikTok &amp; YouTube Ads</li>
+          <li>Retargeting campaigns</li>
+          <li>Social media management</li>
+          <li>Event marketing &amp; grand openings</li>
+        </ul>
+      </div>
+      <div class="service-group">
+        <h3>Content &amp; Reputation</h3>
+        <div class="sub">Building trust</div>
+        <ul>
+          <li>Photography &amp; drone video</li>
+          <li>Promotional videos &amp; commercials</li>
+          <li>Graphic design &amp; print materials</li>
+          <li>Review generation &amp; response management</li>
+          <li>Loyalty &amp; referral programs</li>
+        </ul>
+      </div>
+      <div class="service-group">
+        <h3>Automation &amp; AI</h3>
+        <div class="sub">Working while you sleep</div>
+        <ul>
+          <li>AI chat &amp; automated follow-up (SMS + email)</li>
+          <li>CRM setup &amp; appointment booking</li>
+          <li>Sales funnel creation</li>
+          <li>Quote, invoice &amp; reminder automation</li>
+          <li>Monthly analytics &amp; reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How We Work</div>
+      <h2>We rebuild your marketing the way a wall gets rebuilt — section by section, until nothing is exposed.</h2>
+    </div>
+    <div class="process">
+      <div class="stage">
+        <div class="num">I</div>
+        <h4>Survey the Wall</h4>
+        <p>Free audit of your site, listings, ads, and reviews — we show you exactly where the gaps are.</p>
+      </div>
+      <div class="stage">
+        <div class="num">II</div>
+        <h4>Lay the Foundation</h4>
+        <p>Brand, website, and Google Business Profile get built or rebuilt so every new lead lands somewhere solid.</p>
+      </div>
+      <div class="stage">
+        <div class="num">III</div>
+        <h4>Raise the Walls</h4>
+        <p>Ads, content, and SEO go live together. Automation starts following up on every lead within minutes.</p>
+      </div>
+      <div class="stage">
+        <div class="num">IV</div>
+        <h4>Open the Gates</h4>
+        <p>Monthly reporting shows what's working. We keep building — new campaigns, seasonal promos, referral loops.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Monthly Packages</div>
+      <h2>Pick your starting point. Every package can grow with you.</h2>
+    </div>
+    <div class="packages">
+      <div class="package">
+        <h3>Starter</h3>
+        <div class="price">$500<span>–$1,000/mo</span></div>
+        <div class="desc">For businesses that need consistent visibility, not a full overhaul.</div>
+        <ul>
+          <li>Social media management</li>
+          <li>Google Business Profile updates</li>
+          <li>Basic local SEO</li>
+        </ul>
+        <a href="#lead" class="btn btn-ghost">Start Here</a>
+      </div>
+      <div class="package featured">
+        <h3>Growth</h3>
+        <div class="price">$1,000<span>–$2,500/mo</span></div>
+        <div class="desc">Everything in Starter, plus paid ads and lead nurturing.</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Paid ad management</li>
+          <li>Email &amp; SMS marketing</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+        <a href="#lead" class="btn btn-gold">Most Popular</a>
+      </div>
+      <div class="package">
+        <h3>Premium</h3>
+        <div class="price">$2,500<span>–$5,000+/mo</span></div>
+        <div class="desc">Full-service marketing for businesses ready to dominate their market.</div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>Video content &amp; photography</li>
+          <li>AI automation &amp; CRM</li>
+          <li>Dedicated strategy &amp; consulting</li>
+        </ul>
+        <a href="#lead" class="btn btn-ghost">Go Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lead-section" id="lead">
+  <div class="wrap lead-grid">
+    <div class="lead-info">
+      <div class="eyebrow">Start Your Rebuild</div>
+      <h2>Tell us about your business.</h2>
+      <p>We'll follow up within one business day with a free audit of your website, listings, and reviews — plus a plan for where to start.</p>
+      <div class="lead-contact">
+        <span>Call: <a href="tel:2109845063">(210) 984-5063</a> · <a href="tel:2103327543">(210) 332-7543</a></span>
+        <span>Prefer text or email? Use the form — we respond on whichever channel you reach out on.</span>
+      </div>
+    </div>
+    <form class="lead-form" id="leadForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="industry">Industry</label>
+          <select id="industry" name="industry">
+            <option>Contractor / Home Services</option>
+            <option>Salon / Spa</option>
+            <option>Restaurant / Food</option>
+            <option>Dental / Medical</option>
+            <option>Real Estate</option>
+            <option>Other Local Business</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="message">What's the biggest gap in your marketing right now?</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-gold">Send &amp; Get My Free Audit</button>
+      <div id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="tagline">Building Brands. · Breaking Barriers. · Impacting Kingdoms.</div>
+    <div class="phones">
+      <a href="tel:2109845063">(210) 984-5063</a>
+      <a href="tel:2103327543">(210) 332-7543</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© Nehemiah Marketing. San Antonio, TX.</div>
+</footer>
+
+<!-- AI Assistant floating chat widget -->
+<button id="aiWidgetToggle" aria-label="Open chat assistant" title="Chat with us">💬</button>
+<div id="aiWidgetPanel">
+  <div class="widget-head">
+    <span>NEHEMIAH MARKETING · ASSISTANT</span>
+    <button id="aiWidgetClose" aria-label="Close chat">✕</button>
+  </div>
+  <!--
+    Paste your live agent_id below once your assistant is created at
+    agent.aiassistant.co. This is the exact embed your dashboard gave you,
+    just resized to fit the floating panel instead of a fixed page block.
+  -->
+  <iframe
+    src="https://agent.aiassistant.co/web-agent?agent_id=YOUR_AGENT_ID"
+    allow="microphone"
+    title="Nehemiah Marketing AI Assistant">
+  </iframe>
+</div>
+
+<script>
+  // ---- AI widget open/close ----
+  const aiToggle = document.getElementById('aiWidgetToggle');
+  const aiPanel = document.getElementById('aiWidgetPanel');
+  const aiClose = document.getElementById('aiWidgetClose');
+  aiToggle.addEventListener('click', () => aiPanel.classList.toggle('open'));
+  aiClose.addEventListener('click', () => aiPanel.classList.remove('open'));
+
+  // ---- LEAD FORM SUBMIT HANDLER ----
+  // Posts straight to this same app's /api/leads endpoint, which writes into
+  // the Supabase `leads` table server-side. No keys ever touch this page.
+  document.getElementById('leadForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const btn = e.target.querySelector('button[type="submit"]');
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    data.source = 'website_form';
+
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('request failed');
+      status.textContent = 'Thank you, ' + (data.name || 'friend') + ' — we\'ll be in touch within one business day.';
+      e.target.reset();
+    } catch (err) {
+      status.textContent = 'Something went wrong submitting the form — please call us at (210) 984-5063.';
+    } finally {
+      status.style.display = 'block';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
